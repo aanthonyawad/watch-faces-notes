@@ -1,0 +1,40 @@
+design :
+focus on the 5 seconds rule 
+design large touch gestures (large icons)
+think about stream cards first 
+to access rely on voice and touch
+do one thing at a time and do it fast 
+design for the corner of the car 
+---------------------------------
+to connect my phone to the emulator 
+recheck with tutorial but :
+command to run adb -d forward tcp:5601 tcp:5601
+----------------------------------
+To make a notification :
+NotificationCompat.builder builder = new NotificationCompat.Builder(this);
+builder.setContentTitle("Title on page 1");
+builder.setContentText("Contents on page 1");
+builder.setSmallIcon(R.drawable.ic_launcher);
+
+
+NoificationManager managerCompat = NotificationManagerCompat.from(this);
+
+managerCompat.notify(1,builder.build());// or i can make Notfication noti = builder.build();
+-----------------------------------------------------------------------------------------
+
+Pending intent : contains the intent to start our activity
+Pending intent : performs action on behalf of our application
+pending intent : performs action independent if whether the app is running or no
+pending intent : if i give it to another app the other app can use my app code to do it 
+
+implementation:
+
+Intent intent = new Intent(this,NotificationDetails.class);
+PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+/// same notification code as above but we add to it :
+	builder.setContentIntent(pendingIntent);
+
+if i close the app i can re enter directly to specified act from pending intent
+
+if from cell phone to watch bt farjina  open on phone ( mesh open ) w btftaha al telephone
+---------------------------------------------------------------------------------------------------
