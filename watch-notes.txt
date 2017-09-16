@@ -46,7 +46,7 @@ Notification extendedNotification = new firstBuilder.extend(wearableExtender);
 -------------------------------------------------------------------------------------------------
 how to recieve voice input from notification:
 
-RemoteInput.Builder remoteInputBuilder = new RemoteInput.Builder(NotificationUtils.EXTRA_VOICE_REPLY);//extra voice ana khele2a
+RemoteInput.Builder remoteInputBuilder = new RemoteInput.Builder(NotificationUtils.EXTRA_VOICE_REPLY);//extra voice ana khele2a metel id
 remoteInputBuilder.setLabel(myLabel); // kamena ana emela;
 remoteInputBilder.setChoices(reply_choices);//kamena reply_choices ana emela
 
@@ -65,4 +65,14 @@ NotificationCompat.Action action = notiCompatActionBuilder.build();// the  one i
 builder.extend(new NotificationCompat.WearableExtender.addAcion(action));
 
 //voice input from notification doesnt work on phones only on wearable
+-------------------------------------------------------------------------------------------------------
+to recieve the voice reply :
+Intent intent =   ; // the intent of the pending intent 
 
+Bundle bundle = RemoteInput.getResultsFromIntent(intent);
+if(bundle != null){
+return bundle.getCharSequence(NotificationUtils.Extra_VOICE_REPLY);
+// here it returns the reply of the user from notification that we created 
+//because we put EXTRA_VOICE_REPLY wich was the id before that we set to it 
+}
+// code to manipulate the answer based on what he chose :D
