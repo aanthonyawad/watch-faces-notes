@@ -38,3 +38,31 @@ if i close the app i can re enter directly to specified act from pending intent
 
 if from cell phone to watch bt farjina  open on phone ( mesh open ) w btftaha al telephone
 ---------------------------------------------------------------------------------------------------
+add an extra notification on wearable only 
+ // need to add this to notification compact:
+NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
+wearableExtender.addPage(SecondNotification);
+Notification extendedNotification = new firstBuilder.extend(wearableExtender);
+-------------------------------------------------------------------------------------------------
+how to recieve voice input from notification:
+
+RemoteInput.Builder remoteInputBuilder = new RemoteInput.Builder(NotificationUtils.EXTRA_VOICE_REPLY);//extra voice ana khele2a
+remoteInputBuilder.setLabel(myLabel); // kamena ana emela;
+remoteInputBilder.setChoices(reply_choices);//kamena reply_choices ana emela
+
+RemoteInput remoteInput = remoteInputBuilder.build(); // here it builded the class remoteInput from the builder
+
+NotificationCompat.Action.Builder notiCompatActionBuilder = new NotificationCompat.Action.Builder(icon,"My voice",pendingIntent);
+
+//then i attach  my remote to  my action input like the following :
+notificationActionBuilder.addRemoteInput(remoteInput);
+
+//then i build my action
+NotificationCompat.Action action = notiCompatActionBuilder.build();// the  one i created before
+
+
+//then i add to my notification builder the followingstuff 
+builder.extend(new NotificationCompat.WearableExtender.addAcion(action));
+
+//voice input from notification doesnt work on phones only on wearable
+
