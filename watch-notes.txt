@@ -76,3 +76,21 @@ return bundle.getCharSequence(NotificationUtils.Extra_VOICE_REPLY);
 //because we put EXTRA_VOICE_REPLY wich was the id before that we set to it 
 }
 // code to manipulate the answer based on what he chose :D
+-----------------------------------------------------------------------------------------------------
+//to stack notification under each other 
+//when i create the notification 
+Notification notification1 = new NotificationCompat.Builder(this).
+				set....
+				set.....
+				.setGroup(THE_GROUP) // THE_GROUP is the id  of notification to enter to stack notifications
+				...
+				...
+				...
+				.build();
+//stacking notification only works for wearables 
+----------------------------------------------------------------------------------------------------
+// to make xml layouts for android wear i have to use in xml file box inset Layout 
+and inside it i put only one layout ex: frameLayout 
+and i give it an attribute app:layout_box="all"
+//this will not let my layout go out of the screen if round or if rect 
+-----------------------------------------------------------------------------
