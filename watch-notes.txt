@@ -94,3 +94,8 @@ and inside it i put only one layout ex: frameLayout
 and i give it an attribute app:layout_box="all"
 //this will not let my layout go out of the screen if round or if rect 
 -----------------------------------------------------------------------------
+// for watch faces 
+// in ambient mode == to save battery  // make all the colors only white and black 
+// in bitambitmode == to save more battery // make all the antialias == false or all my paint 
+// in burn it protection need to remove all colors only keep white or black to not burn the screen 
+
